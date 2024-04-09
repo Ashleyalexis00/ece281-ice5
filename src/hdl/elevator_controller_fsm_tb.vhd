@@ -115,30 +115,30 @@ begin
 		-- rest of cases
         w_stop <= '1'; wait for k_clk_period  * 2;
             assert w_floor = "0011" report "bad stay on floor 3" severity failure;
-        w_stop <= '0'; wait for k_clk_period * 2;
+        w_stop <= '0'; wait for k_clk_period;
             assert w_floor = "0100" report "bad up from floor 3" severity failure;
         w_stop <= '1'; wait for k_clk_period * 2;
             assert w_floor = "0100" report "bad stay on floor 4" severity failure;
-        w_stop <= '0'; wait for k_clk_period * 2;
+        w_stop <= '0'; wait for k_clk_period;
             assert w_floor = "0100" report "bad up from floor 4" severity failure;
         -- go back DOWN
         w_up_down <= '0';  
 		
 		w_stop <= '1'; wait for k_clk_period  * 2;
             assert w_floor = "0100" report "bad stay on floor 4" severity failure;
-        w_stop <= '0'; wait for k_clk_period * 2;
+        w_stop <= '0'; wait for k_clk_period;
             assert w_floor = "0011" report "bad down from floor 4" severity failure;
         w_stop <= '1'; wait for k_clk_period * 2;
             assert w_floor = "0011" report "bad stay on floor 3" severity failure;
-        w_stop <= '0'; wait for k_clk_period * 2;
+        w_stop <= '0'; wait for k_clk_period;
             assert w_floor = "0010" report "bad down from floor 3" severity failure;  
         w_stop <= '1'; wait for k_clk_period  * 2;
             assert w_floor = "0010" report "bad stay on floor 2" severity failure;
-        w_stop <= '0'; wait for k_clk_period * 2;
+        w_stop <= '0'; wait for k_clk_period;
             assert w_floor = "0001" report "bad down from floor 2" severity failure;
         w_stop <= '1'; wait for k_clk_period * 2;
             assert w_floor = "0001" report "bad stay on floor 1" severity failure;
-        w_stop <= '0'; wait for k_clk_period * 2;
+        w_stop <= '0'; wait for k_clk_period;
             assert w_floor = "0001" report "bad down from floor 1" severity failure;	
 		wait; -- wait forever
 	end process;	
